@@ -1,0 +1,22 @@
+{
+  "name": "Rampage Tattoo Machine",
+  "short_name": "Rampage",
+  "theme_color": "#9333ea",
+  "background_color": "#1a0f2e",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "img/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "img/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "splash_pages": null
+} 
