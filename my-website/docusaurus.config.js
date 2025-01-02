@@ -14,16 +14,13 @@ const config = {
   tagline: 'Professional Wireless Tattoo Machine',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://rigdoge.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/rampage-landing/',
+  // 更新为你的 Cloudflare Pages 域名
+  url: 'https://rampage-landing.pages.dev',
+  // 由于是在根域名部署，baseUrl 改为 '/'
+  baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'rigdoge', // Usually your GitHub org/user name.
-  projectName: 'rampage-landing', // Usually your repo name.
+  // 部署配置
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
