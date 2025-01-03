@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Cloudflare R2 配置
-const R2_BUCKET_URL = 'https://1e29a267dfdfcb81cb84c28b7d71d39c.r2.cloudflarestorage.com';
+const R2_BUCKET_URL = 'https://pub-f30329093fd24742a020baa2c0011934.r2.dev';
 
 export function getR2ImageUrl(imagePath) {
   // 移除开头的斜杠（如果有）

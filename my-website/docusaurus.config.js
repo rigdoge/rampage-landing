@@ -162,64 +162,21 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {to: '/page1', label: 'Design 1', position: 'left'},
+          {to: '/page2', label: 'Design 2', position: 'left'},
+          {to: '/nft', label: 'NFT Gallery', position: 'left'},
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/rigdoge/rampage-landing',
-            label: 'GitHub',
+            href: '#',
+            label: 'Shop Now',
             position: 'right',
+            className: 'navbar-shop-button',
           },
         ],
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Documentation',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Instagram',
-                href: '#',
-              },
-              {
-                label: 'Twitter',
-                href: '#',
-              },
-              {
-                label: 'Facebook',
-                href: '#',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/rigdoge/rampage-landing',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Rampage Tattoo Machine. Built with Docusaurus.`,
+        links: [],
+        copyright: `Copyright © 2025 Rampage Tattoo Machine.`,
       },
       prism: {
         theme: prismThemes.github,
