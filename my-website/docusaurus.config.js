@@ -11,16 +11,19 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Rampage',
-  tagline: 'Professional Wireless Tattoo Machine',
+  tagline: 'Next-generation wireless tattoo machine',
   favicon: 'img/favicon.ico',
 
-  // 更新为你的 Cloudflare Pages 域名
+  // Set the production url of your site here
   url: 'https://rampage-landing.pages.dev',
-  // 由于是在根域名部署，baseUrl 改为 '/'
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // 部署配置
-  trailingSlash: false,
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'rigdoge', // Usually your GitHub org/user name.
+  projectName: 'rampage-landing', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -37,12 +40,30 @@ const config = {
     [
       '@docusaurus/plugin-pwa',
       {
-        debug: true,
+        debug: process.env.NODE_ENV === 'development',
         offlineModeActivationStrategies: [
           'appInstalled',
           'standalone',
           'queryString',
         ],
+        swRegister: false,
+        injectManifestConfig: {
+          manifestTransforms: [
+            // Basic PWA optimization
+            async (manifestEntries) => {
+              const manifest = manifestEntries.map((entry) => {
+                if (entry.url.includes('page1')) {
+                  return {
+                    ...entry,
+                    revision: null,
+                  };
+                }
+                return entry;
+              });
+              return { manifest, warnings: [] };
+            },
+          ],
+        },
         pwaHead: [
           {
             tagName: 'link',
@@ -67,7 +88,7 @@ const config = {
           {
             tagName: 'meta',
             name: 'apple-mobile-web-app-status-bar-style',
-            content: '#9333ea',
+            content: '#1a0f2e',
           },
           {
             tagName: 'link',
@@ -88,7 +109,7 @@ const config = {
           {
             tagName: 'meta',
             name: 'msapplication-TileColor',
-            content: '#9333ea',
+            content: '#1a0f2e',
           },
         ],
       },
@@ -100,8 +121,28 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: false,
-        blog: false,
+        docs: {
+          sidebarPath: './sidebars.js',
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/rigdoge/rampage-landing/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        blog: {
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+          },
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/rigdoge/rampage-landing/tree/main/packages/create-docusaurus/templates/shared/',
+          // Useful options to enforce blogging best practices
+          onInlineTags: 'warn',
+          onInlineAuthors: 'warn',
+          onUntruncatedBlogPosts: 'warn',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -121,43 +162,25 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {to: '/page1', label: 'Design 1', position: 'left'},
+          {to: '/page2', label: 'Design 2', position: 'left'},
+          {to: '/nft', label: 'NFT Gallery', position: 'left'},
           {
-            href: 'https://github.com/rigdoge/rampage-landing',
-            label: 'GitHub',
+            href: '#',
+            label: 'Shop Now',
             position: 'right',
+            className: 'navbar-shop-button',
           },
         ],
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Instagram',
-                href: '#',
-              },
-              {
-                label: 'Twitter',
-                href: '#',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/rigdoge/rampage-landing',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Rampage. Version ${require('./package.json').version}`,
+        links: [],
+        copyright: `Copyright © 2025 Rampage Tattoo Machine.`,
       },
       prism: {
-        theme: require('prism-react-renderer').themes.dracula,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
       },
     }),
 };
